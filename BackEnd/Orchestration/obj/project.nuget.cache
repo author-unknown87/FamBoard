@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "KUqhYavM5/Y=",
+  "dgSpecHash": "bG5LdTwqEDY=",
   "success": true,
   "projectFilePath": "C:\\Work\\FamBoard\\app\\BackEnd\\Orchestration\\Orchestration.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\daemo\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.12\\microsoft.aspnetcore.openapi.10.0.12.nupkg.sha512",
-    "C:\\Users\\daemo\\.nuget\\packages\\microsoft.openapi\\2.12.0\\microsoft.openapi.2.12.0.nupkg.sha512",
-    "C:\\Users\\daemo\\.nuget\\packages\\system.text.json\\8.0.5\\system.text.json.8.0.5.nupkg.sha512"
+    "C:\\Users\\daemo\\.nuget\\packages\\microsoft.openapi\\2.12.0\\microsoft.openapi.2.12.0.nupkg.sha512"
   ],
   "logs": []
 }
