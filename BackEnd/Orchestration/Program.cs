@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Orchestration.Data;
+using Orchestration.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<FamBoardContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IDinnerRepository, DinnerRepository>();
 
 var app = builder.Build();
 
