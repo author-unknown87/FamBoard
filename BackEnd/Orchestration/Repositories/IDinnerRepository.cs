@@ -4,5 +4,5 @@ namespace Orchestration.Repositories;
 
 public interface IDinnerRepository
 {
-    Task<IEnumerable<Dinners>> GetDinnersAsync(int? dinnerPrimaryKey);
+    Task<IEnumerable<DinnersModel>> GetDinnersAsync(int? dinnerPrimaryKey);
 }

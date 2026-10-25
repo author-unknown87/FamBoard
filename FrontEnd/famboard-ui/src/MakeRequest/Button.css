@@ -1,0 +1,22 @@
+.request-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 6px;
+  background: #171717;
+  color: #fafafa;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4286;
+  text-align: center;
+  cursor: pointer;
+}
+
+.request-button:hover { background: #2b2b2b; }
+.request-button:focus-visible { outline: 2px solid #666; outline-offset: 2px; }
+.request-button--large { min-height: 49px; font-size: 21px; }

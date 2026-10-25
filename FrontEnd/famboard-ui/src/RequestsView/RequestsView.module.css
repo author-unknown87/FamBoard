@@ -1,0 +1,59 @@
+.mainFrame {
+  width: 390px;
+  height: 844px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  color: #111;
+  font-family: 'Geist', system-ui, sans-serif;
+}
+
+.headerFrame { display: flex; flex-direction: column; align-items: center; background: #fff; overflow: hidden; }
+.brand {
+  width: 390px;
+  height: 176px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 10px;
+  background: #c4c4c4;
+  font-family: 'Road Rage', Impact, sans-serif;
+  font-size: 144px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.navPanel { width: 390px; height: 86px; display: flex; background: #9e9e9e; }
+.navIcon {
+  flex: 1;
+  height: 86px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #000;
+  font: 52px/1 system-ui, sans-serif;
+  cursor: pointer;
+}
+.navIcon:nth-child(2) { font-size: 42px; }
+.navIcon:nth-child(3) { font-size: 48px; }
+
+.tabSwitch { width: 100%; box-sizing: border-box; display: flex; justify-content: center; align-items: center; gap: 20px; padding: 10px 0; background: #fff; }
+.button { height: 40px; width: 120px; box-sizing: border-box; border-radius: 6px; padding: 8px 24px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; border: 1px solid transparent; font: 500 14px/1.4286 'JetBrains Mono', monospace; cursor: pointer; }
+.buttonPrimary { background: #ff8400; color: #111; }
+.buttonOutline { background: #dedede; color: #111; border-color: #cbccc9; box-shadow: 0 1px 1.75px #0000000d; }
+.buttonSecondary { background: #e7e8e5; color: #111; }
+.buttonDestructive { background: #d93c15; color: #111; }
+
+.contentFrame { width: 100%; box-sizing: border-box; flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 10px; background: #fff; overflow: hidden; }
+.requestItem { width: 370px; box-sizing: border-box; border-bottom: 1px solid #cbccc9; }
+.requestTrigger { width: 100%; min-height: 56px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 16px 0; border: 0; background: transparent; color: #111; text-align: left; font: 500 16px/1.5 'JetBrains Mono', monospace; cursor: pointer; }
+.chevron { width: 10px; height: 10px; flex: 0 0 10px; margin-right: 3px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-3px); transition: transform 150ms ease; }
+.chevronOpen { transform: rotate(225deg) translate(-2px, -2px); }
+.requestContent { padding: 0 0 16px; color: #666; white-space: pre-line; font: 400 14px/1.4286 Geist, system-ui, sans-serif; }
+
+@media (max-width: 390px) {
+  .mainFrame { width: 100vw; }
+  .brand, .navPanel { width: 100%; }
+  .requestItem { width: 100%; }
+}

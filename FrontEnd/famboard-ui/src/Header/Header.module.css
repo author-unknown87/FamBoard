@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Road+Rage&display=swap');
+
+.header {
+  display: flex;
+  width: 100%;
+  min-height: 144px;
+  padding-inline: 8px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #c4c4c4;
+  box-sizing: border-box;
+}
+
+.title {
+  color: #000;
+  font-family: 'Road Rage', cursive;
+  font-size: clamp(72px, 18vw, 144px);
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+}

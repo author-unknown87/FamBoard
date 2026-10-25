@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Orchestration.Models;
+using Orchestration.Data.Entities;
 
 namespace Orchestration.Data;
 
@@ -106,6 +106,7 @@ public partial class FamBoardContext : DbContext
         {
             entity.HasKey(e => e.PrimaryKey);
 
+            entity.Property(e => e.Description).HasMaxLength(255);
             entity.Property(e => e.Measurement).HasMaxLength(255);
             entity.Property(e => e.Name).HasMaxLength(255);
         });

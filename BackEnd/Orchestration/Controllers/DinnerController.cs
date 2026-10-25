@@ -16,7 +16,7 @@ public class DinnerController : ControllerBase
     }
 
     [HttpGet("get-dinners")]    
-    public async Task<ActionResult<IEnumerable<Dinners>>> GetDinners([FromQuery] int? DinnerPrimaryKey)
+    public async Task<ActionResult<IEnumerable<DinnersModel>>> GetDinners([FromQuery] int? DinnerPrimaryKey)
     {
         var dinners = await _dinnerRepository.GetDinnersAsync(DinnerPrimaryKey);
         return Ok(dinners);

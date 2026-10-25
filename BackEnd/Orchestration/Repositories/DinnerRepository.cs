@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Orchestration.Data;
-using Orchestration.Models;
+using DinnerDto = Orchestration.Models.DinnersModel;
 
 namespace Orchestration.Repositories;
 
@@ -15,7 +15,7 @@ public class DinnerRepository : IDinnerRepository
         _logger = logger;
     }
 
-    public async Task<IEnumerable<Dinners>> GetDinnersAsync(int? dinnerPrimaryKey)
+    public async Task<IEnumerable<DinnerDto>> GetDinnersAsync(int? dinnerPrimaryKey)
     {
         try
         {
@@ -24,6 +24,13 @@ public class DinnerRepository : IDinnerRepository
                 var dinner = await _context.Dinners
                     .AsNoTracking()
                     .Where(d => d.PrimaryKey == dinnerPrimaryKey.Value)
+                    .Select(dinner => new DinnerDto
+                    {
+                        PrimaryKey = dinner.PrimaryKey,
+                        Name = dinner.Name,
+                        Description = dinner.Description,
+                        PlannedNight = dinner.PlannedNight,
+                    })
                     .ToListAsync();
 
                 return dinner;
@@ -31,12 +38,19 @@ public class DinnerRepository : IDinnerRepository
 
             return await _context.Dinners
                 .AsNoTracking()
+                .Select(dinner => new DinnerDto
+                {
+                    PrimaryKey = dinner.PrimaryKey,
+                    Name = dinner.Name,
+                    Description = dinner.Description,
+                    PlannedNight = dinner.PlannedNight,
+                })
                 .ToListAsync();
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error getting dinners for DinnerPrimaryKey {DinnerPrimaryKey}", dinnerPrimaryKey);
-            return Array.Empty<Dinners>();
+            return Array.Empty<DinnerDto>();
         }
     }
 }

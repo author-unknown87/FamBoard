@@ -22,7 +22,7 @@ namespace Orchestration.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Orchestration.Models.Dinners", b =>
+            modelBuilder.Entity("Orchestration.Data.Entities.Dinners", b =>
                 {
                     b.Property<int>("PrimaryKey")
                         .ValueGeneratedOnAdd()
@@ -46,7 +46,7 @@ namespace Orchestration.Data.Migrations
                     b.ToTable("Dinners");
                 });
 
-            modelBuilder.Entity("Orchestration.Models.Events", b =>
+            modelBuilder.Entity("Orchestration.Data.Entities.Events", b =>
                 {
                     b.Property<int>("PrimaryKey")
                         .ValueGeneratedOnAdd()
@@ -74,7 +74,7 @@ namespace Orchestration.Data.Migrations
                     b.ToTable("Events");
                 });
 
-            modelBuilder.Entity("Orchestration.Models.Ingredients", b =>
+            modelBuilder.Entity("Orchestration.Data.Entities.Ingredients", b =>
                 {
                     b.Property<int?>("DinnerPrimaryKey")
                         .HasColumnType("int");
@@ -88,7 +88,7 @@ namespace Orchestration.Data.Migrations
                     b.ToTable("Ingredients");
                 });
 
-            modelBuilder.Entity("Orchestration.Models.Posts", b =>
+            modelBuilder.Entity("Orchestration.Data.Entities.Posts", b =>
                 {
                     b.Property<int>("PrimaryKey")
                         .ValueGeneratedOnAdd()
@@ -111,7 +111,7 @@ namespace Orchestration.Data.Migrations
                     b.ToTable("Posts");
                 });
 
-            modelBuilder.Entity("Orchestration.Models.Replies", b =>
+            modelBuilder.Entity("Orchestration.Data.Entities.Replies", b =>
                 {
                     b.Property<int>("PrimaryKey")
                         .ValueGeneratedOnAdd()
@@ -141,7 +141,7 @@ namespace Orchestration.Data.Migrations
                     b.ToTable("Replies");
                 });
 
-            modelBuilder.Entity("Orchestration.Models.RequestTypes", b =>
+            modelBuilder.Entity("Orchestration.Data.Entities.RequestTypes", b =>
                 {
                     b.Property<int>("PrimaryKey")
                         .ValueGeneratedOnAdd()
@@ -158,7 +158,7 @@ namespace Orchestration.Data.Migrations
                     b.ToTable("RequestTypes");
                 });
 
-            modelBuilder.Entity("Orchestration.Models.Requests", b =>
+            modelBuilder.Entity("Orchestration.Data.Entities.Requests", b =>
                 {
                     b.Property<int>("PrimaryKey")
                         .ValueGeneratedOnAdd()
@@ -194,7 +194,7 @@ namespace Orchestration.Data.Migrations
                     b.ToTable("Requests");
                 });
 
-            modelBuilder.Entity("Orchestration.Models.Snacks", b =>
+            modelBuilder.Entity("Orchestration.Data.Entities.Snacks", b =>
                 {
                     b.Property<int>("PrimaryKey")
                         .ValueGeneratedOnAdd()
@@ -204,6 +204,10 @@ namespace Orchestration.Data.Migrations
 
                     b.Property<bool?>("Gone")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Measurement")
                         .HasMaxLength(255)
@@ -221,7 +225,7 @@ namespace Orchestration.Data.Migrations
                     b.ToTable("Snacks");
                 });
 
-            modelBuilder.Entity("Orchestration.Models.Users", b =>
+            modelBuilder.Entity("Orchestration.Data.Entities.Users", b =>
                 {
                     b.Property<int>("PrimaryKey")
                         .ValueGeneratedOnAdd()
@@ -249,9 +253,9 @@ namespace Orchestration.Data.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Orchestration.Models.Ingredients", b =>
+            modelBuilder.Entity("Orchestration.Data.Entities.Ingredients", b =>
                 {
-                    b.HasOne("Orchestration.Models.Dinners", "DinnerPrimaryKeyNavigation")
+                    b.HasOne("Orchestration.Data.Entities.Dinners", "DinnerPrimaryKeyNavigation")
                         .WithMany()
                         .HasForeignKey("DinnerPrimaryKey")
                         .HasConstraintName("FK_Ingredients_Dinners");
@@ -259,14 +263,14 @@ namespace Orchestration.Data.Migrations
                     b.Navigation("DinnerPrimaryKeyNavigation");
                 });
 
-            modelBuilder.Entity("Orchestration.Models.Replies", b =>
+            modelBuilder.Entity("Orchestration.Data.Entities.Replies", b =>
                 {
-                    b.HasOne("Orchestration.Models.Posts", "PostPrimaryKeyNavigation")
+                    b.HasOne("Orchestration.Data.Entities.Posts", "PostPrimaryKeyNavigation")
                         .WithMany("Replies")
                         .HasForeignKey("PostPrimaryKey")
                         .HasConstraintName("FK_Replies_Posts");
 
-                    b.HasOne("Orchestration.Models.Users", "UserPrimaryKeyNavigation")
+                    b.HasOne("Orchestration.Data.Entities.Users", "UserPrimaryKeyNavigation")
                         .WithMany("Replies")
                         .HasForeignKey("UserPrimaryKey")
                         .HasConstraintName("FK_Replies_Users");
@@ -276,9 +280,9 @@ namespace Orchestration.Data.Migrations
                     b.Navigation("UserPrimaryKeyNavigation");
                 });
 
-            modelBuilder.Entity("Orchestration.Models.Requests", b =>
+            modelBuilder.Entity("Orchestration.Data.Entities.Requests", b =>
                 {
-                    b.HasOne("Orchestration.Models.RequestTypes", "TypePrimaryKeyNavigation")
+                    b.HasOne("Orchestration.Data.Entities.RequestTypes", "TypePrimaryKeyNavigation")
                         .WithMany("Requests")
                         .HasForeignKey("TypePrimaryKey")
                         .HasConstraintName("FK_Requests_RequestTypes");
@@ -286,17 +290,17 @@ namespace Orchestration.Data.Migrations
                     b.Navigation("TypePrimaryKeyNavigation");
                 });
 
-            modelBuilder.Entity("Orchestration.Models.Posts", b =>
+            modelBuilder.Entity("Orchestration.Data.Entities.Posts", b =>
                 {
                     b.Navigation("Replies");
                 });
 
-            modelBuilder.Entity("Orchestration.Models.RequestTypes", b =>
+            modelBuilder.Entity("Orchestration.Data.Entities.RequestTypes", b =>
                 {
                     b.Navigation("Requests");
                 });
 
-            modelBuilder.Entity("Orchestration.Models.Users", b =>
+            modelBuilder.Entity("Orchestration.Data.Entities.Users", b =>
                 {
                     b.Navigation("Replies");
                 });
