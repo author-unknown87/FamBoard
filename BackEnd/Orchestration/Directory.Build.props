@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <BaseOutputPath>$(TEMP)\FamBoard\Orchestration\bin\</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(TEMP)\FamBoard\Orchestration\obj\</BaseIntermediateOutputPath>
+    <MSBuildProjectExtensionsPath>$(TEMP)\FamBoard\Orchestration\obj\</MSBuildProjectExtensionsPath>
+  </PropertyGroup>
+</Project>
